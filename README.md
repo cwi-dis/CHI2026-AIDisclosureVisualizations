@@ -17,25 +17,81 @@ This includes the four disclosure visualization prototypes evaluated in our stud
 - **Task-based Timeline**
 - **Chatbot Disclosure**
 
-Each prototype represents different ways of communicating **human versus AI contribution in news production**.
+Each prototype represents different ways of communicating **human versus AI contribution in news production** and are intended as reusable design artifacts for HCI, AI transparency, journalism, and disclosure research.
+
 
 ## Source Files
 
 The `/source` folder contains the disclosure visualization files.
 
-### Included files
-- `a.R`
-- `b.R`
-- `c.R`
-- `d.json`
+### Repository Structure
 
-These can be reused in future studies.
+```text
+src/
+├── components/
+│   ├── PrototypeGallery.js
+│   └── visualisations/
+│       ├── TextualDisclosure.js
+│       ├── RoleBasedTimeline.js
+│       ├── Chatbot.js
+│       └── TaskBasedTimeline.js
+│
+├── data/
+│   └── demoContent.js
+│
+├── styles/
+│   └── prototypes.css
+│
+├── App.js
+└── index.js
+```
 
-If you would like to adapt the designs:
-1. Open json files
-2. Adjust collaboration ratios
-3. Modify task stages or role labels
-4. Embed the prototypes in the website / webapp
+### Key files
+
+- **PrototypeGallery.js** → renders the four demo prototypes
+- **demoContent.js** → contains all example content and interaction data
+- **visualisations/** → reusable disclosure components
+- **prototypes.css** → styling for all prototype layouts
+
+## Installation
+
+After cloning or downloading the `/source` folder, install dependencies:
+
+```bash
+npm install
+```
+
+Start the local demo:
+
+```bash
+npm start
+```
+
+The demo will open at:
+
+```text
+http://localhost:3000
+```
+
+## How to Reuse the Prototypes
+
+Each prototype is a standalone React component.
+
+Example:
+
+```jsx
+import Chatbot from "./components/visualisations/Chatbot";
+import demoContent from "./data/demoContent";
+
+<Chatbot currentViz={demoContent.chatbot} />
+```
+
+To adapt the prototypes:
+
+- edit the content in `src/data/demoContent.js`
+- replace icons/images in `public/images/`
+- modify visual styling in `src/styles/prototypes.css`
+- embed components into your own React applications
 
 ## Preprint + Videos
 
